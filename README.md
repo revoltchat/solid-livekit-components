@@ -8,6 +8,8 @@
 
 Solid components for building applications with LiveKit
 
+This is a port of [@livekit/components-react](https://www.npmjs.com/package/@livekit/components-react) to Solid.js, many features may be missing. The `hooks` part of the original library is analagous to `signals` in this project.
+
 ## Quick start
 
 Install it:

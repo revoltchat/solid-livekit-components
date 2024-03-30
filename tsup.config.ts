@@ -1,5 +1,3 @@
-import '@types/node'
-
 import { defineConfig } from 'tsup'
 import * as preset from 'tsup-preset-solid'
 
