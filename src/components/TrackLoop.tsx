@@ -1,9 +1,14 @@
 // @livekit/components-react@2.0.4
 // Apache-2.0
 
-import type { TrackReference, TrackReferenceOrPlaceholder } from '@livekit/components-core'
+import {
+  getTrackReferenceId,
+  type TrackReference,
+  type TrackReferenceOrPlaceholder,
+} from '@livekit/components-core'
 import { TrackRefContext } from '../context/track-reference-context'
-import { Accessor, Component, For } from 'solid-js'
+import { Accessor, Component } from 'solid-js'
+import { Key } from '@solid-primitives/keyed'
 
 /** @public */
 export interface TrackLoopProps {
@@ -30,12 +35,12 @@ export interface TrackLoopProps {
  */
 export function TrackLoop({ tracks, ...props }: TrackLoopProps) {
   return (
-    <For each={tracks()}>
+    <Key each={tracks()} by={item => getTrackReferenceId(item)}>
       {trackReference => (
-        <TrackRefContext.Provider value={trackReference}>
+        <TrackRefContext.Provider value={trackReference()}>
           {props.children({})}
         </TrackRefContext.Provider>
       )}
-    </For>
+    </Key>
   )
 }
