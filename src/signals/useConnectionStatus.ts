@@ -19,7 +19,7 @@ import { createMemo } from 'solid-js'
 export function useConnectionState(room?: Room) {
   // passed room takes precedence, if not supplied get current room context
   const r = useEnsureRoom(room)
-  const observable = createMemo(() => connectionStateObserver(r), [r])
-  const connectionState = useObservableState(observable(), r.state)
+  const observable = createMemo(() => connectionStateObserver(r()))
+  const connectionState = useObservableState(observable(), r().state)
   return connectionState
 }

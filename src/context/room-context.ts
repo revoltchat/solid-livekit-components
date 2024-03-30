@@ -2,10 +2,10 @@
 // Apache-2.0
 
 import type { Room } from 'livekit-client'
-import { createContext, useContext } from 'solid-js'
+import { Accessor, createContext, useContext } from 'solid-js'
 
 /** @public */
-export const RoomContext = createContext<Room | undefined>(undefined)
+export const RoomContext = createContext<Accessor<Room | undefined>>(undefined)
 
 /**
  * Ensures that a room is provided via context.
@@ -35,11 +35,13 @@ export function useMaybeRoomContext() {
  */
 export function useEnsureRoom(room?: Room) {
   const context = useMaybeRoomContext()
-  const r = room ?? context
-  if (!r) {
-    throw new Error(
-      'No room provided, make sure you are inside a Room context or pass the room explicitly',
-    )
+  return () => {
+    const r = room ?? context?.()
+    if (!r) {
+      throw new Error(
+        'No room provided, make sure you are inside a Room context or pass the room explicitly',
+      )
+    }
+    return r
   }
-  return r
 }

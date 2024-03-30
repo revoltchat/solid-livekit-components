@@ -68,7 +68,7 @@ export function useTracks<T extends SourcesArray = Track.Source[]>(
   })
 
   createEffect(() => {
-    const subscription = trackReferencesObservable(room, sources_(), {
+    const subscription = trackReferencesObservable(room(), sources_(), {
       additionalRoomEvents: options.updateOnlyOn,
       onlySubscribed: options.onlySubscribed,
     }).subscribe(({ trackReferences, participants }) => {
@@ -78,7 +78,7 @@ export function useTracks<T extends SourcesArray = Track.Source[]>(
     })
 
     return () => subscription.unsubscribe()
-  }, [room, JSON.stringify(options.updateOnlyOn), JSON.stringify(sources)])
+  }, [room(), JSON.stringify(options.updateOnlyOn), JSON.stringify(sources)])
 
   const maybeTrackReferences = createMemo(() => {
     if (isSourcesWithOptions(sources)) {
@@ -114,7 +114,7 @@ export function useTracks<T extends SourcesArray = Track.Source[]>(
     } else {
       return trackReferences()
     }
-  }, [trackReferences, participants, sources])
+  })
 
   return maybeTrackReferences as Accessor<UseTracksHookReturnType<T>>
 }
