@@ -3,15 +3,11 @@
 // TODO: useChatToggle
 // TODO: useChatPinButton
 // TODO: useConnectionQualityIndicator
-// TODO: useConnectionStatus
 // TODO: useDataChannel
 // TODO: useDisconnectButton
 // TODO: useFacingMode
 // TODO: useFocusToggle
 // TODO: useGridLayout
-// TODO: useIsEncrypted
-// TODO: useIsMuted
-// TODO: useIsSpeaking
 // TODO: useLiveKitRoom
 // TODO: useLocalParticipant
 // TODO: useLocalParticipantPermissions
@@ -44,6 +40,15 @@
 // TODO: useTrackVolume
 // TODO: useVisualStableUpdate
 // TODO: useWarnAboutMissingStyles
+
+export { useConnectionState } from './useConnectionStatus'
+
+export { useIsEncrypted } from './useIsEncrypted'
+
+export type { UseIsMutedOptions } from './useIsMuted'
+export { useIsMuted } from './useIsMuted'
+
+export { useIsSpeaking } from './useIsSpeaking'
 
 export type { UseTracksHookReturnType, UseTracksOptions } from './useTracks'
 export { useTracks } from './useTracks'

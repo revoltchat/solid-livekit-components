@@ -1,26 +1,21 @@
-import { Accessor, Component, createComputed, createSignal } from 'solid-js'
+export * from './components'
+export * from './signals'
+export * from './context'
 
-export function createHello(): [Accessor<string>, (to: string) => void] {
-  const [hello, setHello] = createSignal('Hello World!')
+// TODO: prefabs
+// TODO: assets
 
-  return [hello, (to: string) => setHello(`Hello ${to}!`)]
-}
-
-export const Hello: Component<{ to?: string }> = props => {
-  const [hello, setHello] = createHello()
-
-  // Console calls will be removed in production if `dropConsole` is enabled
-
-  // eslint-disable-next-line no-console
-  console.log('Hello World!')
-
-  createComputed(() => {
-    if (typeof props.to === 'string') setHello(props.to)
-  })
-
-  return (
-    <>
-      <div>{hello()}</div>
-    </>
-  )
-}
+// Re-exports from core
+export { setLogLevel, setLogExtension, isTrackReference } from '@livekit/components-core'
+export type {
+  ChatMessage,
+  ReceivedChatMessage,
+  MessageDecoder,
+  MessageEncoder,
+  LocalUserChoices,
+  TrackReference,
+  TrackReferenceOrPlaceholder,
+  ParticipantClickEvent,
+  PinState,
+  WidgetState,
+} from '@livekit/components-core'

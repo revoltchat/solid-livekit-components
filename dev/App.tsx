@@ -1,14 +1,13 @@
 import type { Component } from 'solid-js'
 import styles from './App.module.css'
-import { Hello } from '../src'
+
+// TODO: we could write a test client
+import '../src'
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <h1>
-          <Hello></Hello>
-        </h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
