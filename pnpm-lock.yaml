@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@livekit/components-core':
     specifier: ^0.9.2
-    version: 0.9.2(@livekit/protocol@1.12.0)(livekit-client@2.0.10)(tslib@2.6.2)
+    version: 0.9.2(@livekit/protocol@1.38.0)(livekit-client@2.13.0)(tslib@2.8.1)
   '@solid-primitives/intersection-observer':
     specifier: ^2.1.6
     version: 2.1.6(solid-js@1.7.8)
@@ -17,9 +17,12 @@ dependencies:
   '@solid-primitives/scheduled':
     specifier: ^1.4.3
     version: 1.4.3(solid-js@1.7.8)
+  add:
+    specifier: ^2.0.6
+    version: 2.0.6
   livekit-client:
-    specifier: ^2.0.10
-    version: 2.0.10
+    specifier: ^2.13.0
+    version: 2.13.0
   rxjs:
     specifier: ^7.8.1
     version: 7.8.1
@@ -415,8 +418,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@bufbuild/protobuf@1.8.0:
-    resolution: {integrity: sha512-qR9FwI8QKIveDnUYutvfzbC21UZJJryYrLuZGjeZ/VGz+vXelUkK+xgkOHsvPEdYEdxtgUUq4313N8QtOehJ1Q==}
+  /@bufbuild/protobuf@1.10.1:
+    resolution: {integrity: sha512-wJ8ReQbHxsAfXhrf9ixl0aYbZorRuOWpBNzm8pL8ftmSxQx/wnJD5Eg861NwJU/czy2VXFIebCeZnZrI9rktIQ==}
     dev: false
 
   /@esbuild/android-arm64@0.18.15:
@@ -725,7 +728,7 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@livekit/components-core@0.9.2(@livekit/protocol@1.12.0)(livekit-client@2.0.10)(tslib@2.6.2):
+  /@livekit/components-core@0.9.2(@livekit/protocol@1.38.0)(livekit-client@2.13.0)(tslib@2.8.1):
     resolution: {integrity: sha512-P1a5el4HSKTaZsmIOgtMrmDu9iViTOSR2G5FLvcmLcnzmpQgw+2oQVNPzNQSPXh7GjB9MXvTW17/eXVI1YeeXw==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -734,24 +737,22 @@ packages:
       tslib: ^2.6.2
     dependencies:
       '@floating-ui/dom': 1.6.3
-      '@livekit/protocol': 1.12.0
+      '@livekit/protocol': 1.38.0
       email-regex: 5.0.0
-      livekit-client: 2.0.10
+      livekit-client: 2.13.0
       loglevel: 1.9.1
       rxjs: 7.8.1
-      tslib: 2.6.2
+      tslib: 2.8.1
     dev: false
 
-  /@livekit/protocol@1.10.4:
-    resolution: {integrity: sha512-7Occ6l5VqjsKsUjpLeVJXJkip4ce22iG9QR/haOkrDXYwGSY+TwCA4ubbJ81aQBt2z0kHVZuaQWdzJSDLI+Kag==}
-    dependencies:
-      '@bufbuild/protobuf': 1.8.0
+  /@livekit/mutex@1.1.1:
+    resolution: {integrity: sha512-EsshAucklmpuUAfkABPxJNhzj9v2sG7JuzFDL4ML1oJQSV14sqrpTYnsaOudMAw9yOaW53NU3QQTlUQoRs4czw==}
     dev: false
 
-  /@livekit/protocol@1.12.0:
-    resolution: {integrity: sha512-AMUWxna4AO/biPaKiu45JYYVHi7sc+sK6pkeNNpqkzL85+eeHkNhkFfENn9YbQKQsVWABkOmcL8p4ZbUjxZkeQ==}
+  /@livekit/protocol@1.38.0:
+    resolution: {integrity: sha512-XX6ulvsE1XCN18LVf3ydHN7Ri1Z1M1P5dQdjnm5nVDsSqUL12Vbo/4RKcRlCEXAg2qB62mKjcaVLXVwkfXggkg==}
     dependencies:
-      '@bufbuild/protobuf': 1.8.0
+      '@bufbuild/protobuf': 1.10.1
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -996,6 +997,10 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
+
+  /add@2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
+    dev: false
 
   /ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -1765,17 +1770,18 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
 
-  /livekit-client@2.0.10:
-    resolution: {integrity: sha512-V+EyTEd3kM1Vl9/TsE3nc7PEnJI2t21ZV0/nkqhGThszym1SJzmc61hKjmCJBnR199pskUxSjrwzMl9HrPQ85A==}
+  /livekit-client@2.13.0:
+    resolution: {integrity: sha512-Q2FAQbJt0zFBdOHIom1YRfsIYIdTC2dxJfus084w4ni4ZHwNYZ9GZQcp9zpuxFg1O36fTobLCn3B1JCSY834nw==}
     dependencies:
-      '@livekit/protocol': 1.10.4
+      '@livekit/mutex': 1.1.1
+      '@livekit/protocol': 1.38.0
       events: 3.3.0
-      loglevel: 1.9.1
-      sdp-transform: 2.14.2
+      loglevel: 1.9.2
+      sdp-transform: 2.15.0
       ts-debounce: 4.0.0
-      tslib: 2.6.2
+      tslib: 2.8.1
       typed-emitter: 2.1.0
-      webrtc-adapter: 8.2.3
+      webrtc-adapter: 9.0.3
     dev: false
 
   /load-tsconfig@0.2.5:
@@ -1804,6 +1810,11 @@ packages:
 
   /loglevel@1.9.1:
     resolution: {integrity: sha512-hP3I3kCrDIMuRwAwHltphhDM1r8i55H33GgqjXbrisuJhF4kRhW1dNuxsRklp4bXl8DSdLaNLuiL4A/LWRfxvg==}
+    engines: {node: '>= 0.6.0'}
+    dev: false
+
+  /loglevel@1.9.2:
+    resolution: {integrity: sha512-HgMmCqIJSAKqo68l0rS2AanEWfkxaZ5wNiEFb5ggm08lDs9Xl2KxBlX3PTcaD2chBM1gXAYf491/M2Rv8Jwayg==}
     engines: {node: '>= 0.6.0'}
     dev: false
 
@@ -2084,8 +2095,8 @@ packages:
     dependencies:
       tslib: 2.6.2
 
-  /sdp-transform@2.14.2:
-    resolution: {integrity: sha512-icY6jVao7MfKCieyo1AyxFYm1baiM+fA00qW/KrNNVlkxHAd34riEKuEkUe4bBb3gJwLJZM+xT60Yj1QL8rHiA==}
+  /sdp-transform@2.15.0:
+    resolution: {integrity: sha512-KrOH82c/W+GYQ0LHqtr3caRpM3ITglq3ljGUIb8LTki7ByacJZ9z+piSGiwZDsRyhQbYBOBJgr2k6X4BZXi3Kw==}
     hasBin: true
     dev: false
 
@@ -2289,6 +2300,10 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
+  /tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+    dev: false
+
   /tsup-preset-solid@2.0.1(esbuild@0.18.15)(solid-js@1.7.8)(tsup@7.1.0):
     resolution: {integrity: sha512-gN0nD2h4909XvpMnSuqgeiKqv+Ao7Y0d1p4VuF0hnQvazBTXrFHX2ImULG4uCsvU73q2zzoDzk5Ei6iACQmk5w==}
     peerDependencies:
@@ -2457,8 +2472,8 @@ packages:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
     dev: true
 
-  /webrtc-adapter@8.2.3:
-    resolution: {integrity: sha512-gnmRz++suzmvxtp3ehQts6s2JtAGPuDPjA1F3a9ckNpG1kYdYuHWYpazoAnL9FS5/B21tKlhkorbdCXat0+4xQ==}
+  /webrtc-adapter@9.0.3:
+    resolution: {integrity: sha512-5fALBcroIl31OeXAdd1YUntxiZl1eHlZZWzNg3U4Fn+J9/cGL3eT80YlrsWGvj2ojuz1rZr2OXkgCzIxAZ7vRQ==}
     engines: {node: '>=6.0.0', npm: '>=3.10.0'}
     dependencies:
       sdp: 3.2.0
